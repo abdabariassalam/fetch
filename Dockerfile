@@ -1,14 +1,21 @@
+FROM heroku/heroku:20-build as build
 
-FROM golang:1.16-alpine
-
+COPY . /app
 WORKDIR /app
 
-COPY . .
+# Setup buildpack
+RUN mkdir -p /tmp/buildpack/heroku/go /tmp/build_cache /tmp/env
+RUN curl https://buildpack-registry.s3.amazonaws.com/buildpacks/heroku/go.tgz | tar xz -C /tmp/buildpack/heroku/go
 
-RUN go mod download
+#Execute Buildpack
+RUN STACK=heroku-20 /tmp/buildpack/heroku/go/bin/compile /app /tmp/build_cache /tmp/env
 
-RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o app
+# Prepare final, minimal image
+FROM heroku/heroku:20
 
-EXPOSE 1234
-
-ENTRYPOINT [ "./app" ]
+COPY --from=build /app /app
+ENV HOME /app
+WORKDIR /app
+RUN useradd -m heroku
+USER heroku
+CMD /app/bin/go-getting-started
