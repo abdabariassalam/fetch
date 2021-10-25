@@ -1,5 +1,7 @@
 github.com/BurntSushi/toml v0.3.1 h1:WXkYYl6Yr3qBf1K79EBnL4mak0OimBfB0XUf9Vl28OQ=
 github.com/BurntSushi/toml v0.3.1/go.mod h1:xHWCNGjB5oqiDr8zfno3MHue2Ht5sIBksp03qcyfWMU=
+github.com/bariasabda/monorepo/packages/fetch v0.0.0-20211025090352-2a84a573d9db h1:Bf9t5pARsmpIumLn7CXkZVphREiGcdNWYPFE6xnjPUo=
+github.com/bariasabda/monorepo/packages/fetch v0.0.0-20211025090352-2a84a573d9db/go.mod h1:ZbNReZwA5PP5thAwdgMViD0aSJ5n+19+axWkMDU8dM0=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
